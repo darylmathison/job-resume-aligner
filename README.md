@@ -4,6 +4,9 @@ It's well known that customizing a resume for a job is good idea.  However, cust
 
 **Note**: This only creates a first draft of the resume.  In my own experience using it, generative AI has added skills I don't have to the resume.  At the end of the day, a human has to submit the resume and is ultimately responsible.
 
+## Inspiration
+[5 AI Projects You Can Build This Weekend (with Python)](https://towardsdatascience.com/5-ai-projects-you-can-build-this-weekend-with-python-c57724e9c461)
+
 ## Requirements
 
 * Python 3.12
