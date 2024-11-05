@@ -6,15 +6,19 @@ from dogpile.cache.region import make_region
 import datetime
 import os.path
 
-region = make_region().configure(
-    "dogpile.cache.dbm",
-    arguments={
-        "filename": os.path.join(
-            os.environ.get("HOME"), ".resume_cache", "cachefile.dbm"
-        )
-    },
-    expiration_time=datetime.timedelta(days=1),
-)
+
+def create_region():
+    cache_dir = os.path.join(os.environ.get("HOME"), ".resume_cache")
+    if not os.path.exists(cache_dir):
+        os.makedirs(cache_dir)
+    return make_region().configure(
+        "dogpile.cache.dbm",
+        arguments={"filename": os.path.join(cache_dir, "cachefile.dbm")},
+        expiration_time=datetime.timedelta(days=1),
+    )
+
+
+region = create_region()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
